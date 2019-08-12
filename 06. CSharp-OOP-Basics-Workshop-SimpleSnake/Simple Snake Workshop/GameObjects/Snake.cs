@@ -17,10 +17,12 @@ namespace SimpleSnake.GameObjects
         private Queue<Point> snakeElements;
         private Food[] foods;
         private Wall wall;
+        private Score score;
 
         public Snake(Wall wall)
         {
             this.wall = wall;
+            this.score = new Score(this.wall.LeftX + 2, this.wall.TopY - 14);
 
             this.foods = new Food[3];
             this.snakeElements = new Queue<Point>();
@@ -64,6 +66,7 @@ namespace SimpleSnake.GameObjects
 
             Point snakeTail = this.snakeElements.Dequeue();
             snakeTail.Draw(' ');
+            score.PrintPoints();
 
             return true;
         }
@@ -71,6 +74,7 @@ namespace SimpleSnake.GameObjects
         public void Eat(Point direction, Point currentSnakeHead)
         {
             int length = this.foods[foodIndex].FoodPoints;
+            this.score.IncreasePoints(foodIndex);
 
             for (int i = 0; i < length; i++)
             {
