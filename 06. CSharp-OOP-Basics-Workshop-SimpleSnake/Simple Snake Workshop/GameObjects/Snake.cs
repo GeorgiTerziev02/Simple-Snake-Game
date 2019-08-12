@@ -108,7 +108,5 @@ namespace SimpleSnake.GameObjects
             this.foods[1] = new FoodDollar(this.wall);
             this.foods[2] = new FoodHash(this.wall);
         }
-
-
     }
 }
