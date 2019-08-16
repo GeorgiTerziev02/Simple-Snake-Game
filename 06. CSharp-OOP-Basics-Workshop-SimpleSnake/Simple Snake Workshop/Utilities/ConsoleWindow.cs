@@ -15,6 +15,7 @@
 
         public static void CustomizeConsole()
         {
+            Console.Title = "Snake v1.0";
             Console.OutputEncoding = Encoding.Unicode;
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
